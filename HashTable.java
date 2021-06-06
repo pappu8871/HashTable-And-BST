@@ -3,7 +3,7 @@ package com.hashTable;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class HashTableUC1 {
+public class HashTableUC2 {
 
 	static void count (String str) {
 		Map<String,Integer> map = new TreeMap<>();
@@ -24,9 +24,10 @@ public class HashTableUC1 {
 	}
 
 	public static void main(String[] args) {
-		String str = "To be or not to be";
+		String str ="Paranoids are not paranoid because "
+				+ "they are paranoid but because they keep "
+				+ "putting themselves deliberately into paranoid "
+				+ "avoidable situations";
 		count(str);
 	}
 }
-
-
