@@ -1,6 +1,6 @@
 package com.hashtable;
 
-public class BinarySearchTreeUC2 {
+public class BinarySearchTreeUC3 {
 
 	class Node {
 		int key;
@@ -12,11 +12,11 @@ public class BinarySearchTreeUC2 {
 			left = right = null;
 		}
 	}
-	Node root;
-	int key;
+	static Node root;
+	static int key;
 	private Object tree;
 
-	public BinarySearchTreeUC2() {
+	public BinarySearchTreeUC3() {
 		root = null;
 	}  
 
@@ -48,8 +48,28 @@ public class BinarySearchTreeUC2 {
 			inorderRec(root.right);
 		}
 	}
+
+	boolean search(int key)  { 
+		root = search(root, key); 
+		if (root!= null)
+			return true;
+		else
+			return false;
+	} 
+
+	Node search(Node root, int key)  { 
+		 
+		if (root==null || root.key==key) 
+			return root; 
+		// val is greater than root's key 
+		if (root.key > key) 
+			return search(root.left, key); 
+		// val is less than root's key 
+		return search(root.right, key); 
+	} 
+
 	public static void main(String[] args){
-		BinarySearchTreeUC2 tree =new BinarySearchTreeUC2();
+		BinarySearchTreeUC3  tree=new BinarySearchTreeUC3();
 
 		tree.insert(56);
 		tree.insert(30);
@@ -67,5 +87,10 @@ public class BinarySearchTreeUC2 {
 
 		System.out.println("Display the tree Inorder");
 		tree.inorder();
+		System.out.println();
+		boolean search = tree.search (63);
+		System.out.println("This key is present BST Tree: " + search );
+
+
 	}
 }
