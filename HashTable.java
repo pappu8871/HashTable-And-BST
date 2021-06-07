@@ -3,31 +3,26 @@ package com.hashTable;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class HashTableUC2 {
+public class HashTableUC3 {
 
-	static void count (String str) {
-		Map<String,Integer> map = new TreeMap<>();
-
-		String arr[] = str.split(" ");
-		for (int i = 0;i<arr.length;i++) {
-			if (map.containsKey(arr[i])) {
-				map.put(arr[1],map.get(arr[i]) + 1);
-			}
-			else {
-				map.put(arr[i], 1);
+	static void remove(String str, String word) {
+		String msg[] = str.split(" ");
+		String new_str = "";
+		for (String words : msg) {
+			if (!words.equals(word)) {
+				new_str += words + " ";
 			}
 		}
-		for(Map.Entry<String,Integer> entry:
-			map.entrySet()) {
-			System.out.println(entry.getKey() + " -> "+entry.getValue());
-		}
+		System.out.print(new_str);
 	}
-
 	public static void main(String[] args) {
-		String str ="Paranoids are not paranoid because "
+		String str = "Paranoids are not paranoid because "
 				+ "they are paranoid but because they keep "
 				+ "putting themselves deliberately into paranoid "
 				+ "avoidable situations";
-		count(str);
+
+		String word = "paranoid";
+
+		remove(str, word);
 	}
 }
